@@ -66,7 +66,7 @@ const isInvalidateValue = value => {
   if (value.length < 1)
     return true
 
-  if (ALLOWED_MAX_LENGTH > value.length)
+  if (ALLOWED_MAX_LENGTH < value.length)
     return true
 
   if (!INTEGER_STRING_REGEX.test(value))
