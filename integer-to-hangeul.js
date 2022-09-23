@@ -29,6 +29,8 @@ export const convertToStr = (value, separator = ' ') => {
     if (targetStr.length > 0)
       resultStr += ((k === reversedNumgeulArr.length - 1) ? '' : separator) + targetStr + FOUR_DIGITS_UNIT_NUMGEUL_PER_INDEX[k]
   }
+
+  return resultStr
 }
 
 /**
