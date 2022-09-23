@@ -1,8 +1,16 @@
-import babel from '@rollup/plugin-babel'
+import babel  from '@rollup/plugin-babel'
 import { terser } from "rollup-plugin-terser";
 
 export default {
   input: 'index.js',
+  external: [/@babel\/runtime/],
+  plugins: [
+    babel({
+      babelHelpers: 'runtime',
+      exclude: /^(.+\/)?node_modules\/.+$/,
+      skipPreflightCheck: true
+    })
+  ],
   output: [{
     file: 'dist/bundle.js',
     format: 'esm',
@@ -12,7 +20,4 @@ export default {
     format: 'esm',
     plugins: [terser()]
   }],
-  plugins: [
-    babel({ exclude: 'node_modules/**' })
-  ]
 }
